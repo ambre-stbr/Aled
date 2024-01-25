@@ -3,7 +3,17 @@ guid: b4880b611edaa2d4aa820b068ec79179
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CatMacBody
+    second: {fileID: 2100000, guid: 8d2ed3c31237b6349aff56d620ab6c60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CatMacEyes
+    second: {fileID: 2100000, guid: 5f694cd0d06e06e4abffff80cf136ef6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
