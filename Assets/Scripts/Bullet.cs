@@ -14,9 +14,21 @@ public class bullet : MonoBehaviour
     // Update is called once per frame
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Jimmy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
     }
+    void Awake()
+    {
+        StartCoroutine(DestroySelf(2));
+    }
+
+    IEnumerator DestroySelf(float DestroyTime)
+    {
+        yield return new WaitForSeconds(DestroyTime);
+        Destroy(gameObject);
+    }
+
 }

@@ -4,16 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Jimmy
+  - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
+  - Bullet
+  - Enemy
   - 
   - 
   - 
