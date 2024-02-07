@@ -7,17 +7,17 @@ public class Enemy_follow : MonoBehaviour
 {
 
     public NavMeshAgent enemy;
-    public GameObject player;
+    public GameObject Life;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        Life = GameObject.Find("Life");
     }
 
     // Update is called once per frame
     void Update()
     {
-        enemy.SetDestination(player.transform.position);
+        enemy.SetDestination(Life.transform.position);
     }
 }

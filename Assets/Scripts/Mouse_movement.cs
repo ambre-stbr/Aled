@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Mouse_movement : MonoBehaviour
 {
-    [SerializeField] private float MouseHorizontal;
+    [SerializeField] 
+    private float MouseHorizontal;
 
     // Update is called once per frame
     void Update()
