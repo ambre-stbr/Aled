@@ -12,7 +12,7 @@ public class Enemy_follow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Life = GameObject.Find("Life");
+        Life = GameObject.Find("Oskour");
     }
 
     // Update is called once per frame

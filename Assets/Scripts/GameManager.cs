@@ -7,23 +7,28 @@ public class GameManager : MonoBehaviour
 {
     public bool _isPlaying = true;
 
-    private float _time;
+    private float Start_time;
 
-    public TMP_Text _timer;
-
-    public TMP_Text _life;
-
-    public TMP_Text _points;
-
-    public int _timeToWin;
+    private float Actual_life_points;
 
     [SerializeField]
-    private int _lifePoint;
+    private TMP_Text Timer_text;
+
+    public TMP_Text Life_points;
+
+    public TMP_Text Total_score;
+
+    public int Time_win;
+
+    [SerializeField]
+    private int Total_life_points;
 
     // Start is called before the first frame update
     void Start()
     {
-        _time = Time.time; 
+        Start_time = Time.time;
+        Actual_life_points = Total_life_points;
+        Life_points.text = Actual_life_points.ToString();
     }
 
     // Update is called once per frame
@@ -31,15 +36,15 @@ public class GameManager : MonoBehaviour
     {
         if (_isPlaying == true)
         {
-            float currentTime = Time.time - _time;
+            float Current_time = Time.time - Start_time;
 
-            int minute = Mathf.FloorToInt(currentTime / 60F);
-            int second = Mathf.FloorToInt(currentTime - minute * 60);
-            _timer.text = string.Format("{0:0}:{1:00}", minute, second);
+            int minute = Mathf.FloorToInt(Current_time / 60F);
+            int second = Mathf.FloorToInt(Current_time - minute * 60);
+            Timer_text.text = string.Format("{0:0}:{1:00}", minute, second);
 
         }
 
-        if (Time.time - _time >= _timeToWin)
+        if (Time.time - Start_time >= Time_win)
         {
             GameOver();
         }
@@ -49,7 +54,7 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
 
-        if (_lifePoint == 0)
+        if (Total_life_points == 0)
         {
             _isPlaying = false;
         }
@@ -57,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     void GameOver()
     {
-        if ( _time == _timeToWin ) 
+        if ( Start_time == Time_win ) 
         {
 
         }
@@ -72,8 +77,9 @@ public class GameManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            _lifePoint -= 1;
+            Actual_life_points -= 1;
             Destroy(other.gameObject);
+            Life_points.text = Actual_life_points.ToString();
         }
     }
 }
